@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BuffetWeb.Dados;
 using BuffetWeb.Models.Buffet.Cliente;
+using Microsoft.EntityFrameworkCore;
 
 namespace Buffet.Models.Buffet.Cliente
     {
@@ -30,6 +32,13 @@ namespace Buffet.Models.Buffet.Cliente
                 });
 
                 return listaDeClientes;
+            }
+
+            public ICollection<ClienteEntity> ObterTodosClientes()
+            {
+                return _databaseContext.cliente
+                    .Include(c => c.TipoCliente)
+                    .ToList();
             }
         }
     }

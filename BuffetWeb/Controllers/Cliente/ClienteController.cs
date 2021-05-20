@@ -1,4 +1,5 @@
 using Buffet.Models.Buffet.Cliente;
+using BuffetWeb.Models.Buffet.Cliente;
 using BuffetWeb.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,7 +27,12 @@ namespace BuffetWeb.Controllers.Cliente
         public IActionResult listagemClientes()
         {
             var viewModel = new listagemClienteViewModels();
-            
+            var listaClientes = _clienteService.ObterTodosClientes();
+            foreach (ClienteEntity clienteEntity in listaClientes)
+                viewModel.Clientes.Add(new Cliente()
+                {
+                    
+                });
             return View(viewModel);
         }
         public IActionResult removerClientes()
