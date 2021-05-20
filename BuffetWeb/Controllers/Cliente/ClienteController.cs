@@ -1,24 +1,38 @@
+using Buffet.Models.Buffet.Cliente;
+using BuffetWeb.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BuffetWeb.Controllers.Cliente
 {
     public class ClienteController : Controller
     {
+        private readonly ClienteService _clienteService;
+
+        public ClienteController(ClienteService clienteService)
+        {
+            _clienteService = clienteService;
+        }
+
         public IActionResult adicionarClientes()
         {
-            return View();
+            var viewModel = new adicionarClientesViewModels();
+            return View(viewModel);
         }
         public IActionResult editarClientes()
         {
-            return View();
+            var viewModel = new  editarClientesViewModels();
+            return View(viewModel);
         }
         public IActionResult listagemClientes()
         {
-            return View();
+            var viewModel = new listagemClienteViewModels();
+            
+            return View(viewModel);
         }
         public IActionResult removerClientes()
         {
-            return View();
+            var viewModel = new removerClientesViewModels();
+            return View(viewModel);
         }
     }
 }

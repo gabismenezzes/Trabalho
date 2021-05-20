@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Buffet.Models.Buffet.Cliente;
 using BuffetWeb.Dados;
+using BuffetWeb.Models.Buffet.Evento;
+using BuffetWeb.Models.Buffet.Locais;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +33,9 @@ namespace BuffetWeb
             services.AddDbContext<DatabaseContext>( options =>
                 options.UseMySql(Configuration.GetConnectionString( "BouffetDb"))
             );
+            services.AddTransient<ClienteService>();
+            services.AddTransient<EventoService>();
+            services.AddTransient<LocalService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

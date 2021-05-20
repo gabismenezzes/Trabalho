@@ -1,12 +1,12 @@
 using BuffetWeb.Dados;
 
-namespace BuffetWeb.Models.Buffet.Evento
+namespace BuffetWeb.Models.Buffet.Locais
 {
-    public class EventoService
+    public class LocalService
     {
         private readonly DatabaseContext _databaseContext;
 
-        public EventoService(DatabaseContext databaseContext)
+        public LocalService(DatabaseContext databaseContext)
         {
             _databaseContext = databaseContext;
         }
